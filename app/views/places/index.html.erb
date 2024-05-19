@@ -1,8 +1,10 @@
 <h1>These are the places:</h1>
-<% places = Place.all %>
+
 <h1>Places</h1>
 <ul>
-  <% for p in places %>
+  <% for p in @places %>
     <li><%= p["name"] %> </li>
   <% end %>
+
+  <a href="places/new" >Enter New Place</a>
 </ul>
