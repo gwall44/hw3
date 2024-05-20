@@ -1,6 +1,7 @@
 <h1>Entries for <%= @place.name %>:</h1>
+
 <ul>
-  <% @entries.each do |entry| %>
+  <% for entry in @entries %>
     <li>
       <strong><%= entry.title %></strong>
       <p><%= entry.description %></p>
@@ -9,7 +10,7 @@
   <% end %>
 </ul>
 <p>
-  <a href="<%= new_entry_path(place_id: @place.id) %>">New entry for <%= @place.name %></a>
+  <a href="/entries/new?place_id=<%= @place.id %>">New entry for <%= @place.name %></a>
 </p>
 <p>
   <a href="<%= places_path %>">Back to places</a>
