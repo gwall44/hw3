@@ -1,10 +1,15 @@
 class EntriesController < ApplicationController
-  def new
-    @entry = Entry.new
-    @entry.place_id = params["place_id"]
+  #def new
+   # @entry = Entry.new
+    #@entry.place_id = params["place_id"]
   
+  #end
+  def new
+    @place = Place.find_by({ "id" => params["place_id"] })
+        @entry = Entry.new
+    @entry.place_id = params["place_id"]
+    # render contacts/new view with new Contact form
   end
-
   
   
   #savings entries from the article like companies (https://entr451.com/creating-new-records/)
