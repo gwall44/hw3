@@ -1,0 +1,18 @@
+<h1> New entry for <%= @place["name"] %></h1>
+
+<%= form_with :model => @entry do |form| %>
+   <p>
+    <%= form.label "Entry:" %>
+    <%= form.text_field "Entry" %>
+  </p>
+  <p>
+    <%= form.label "desciption:" %>
+    <%= form.text_field "desciption" %>
+  </p>
+
+   <p>
+    <%= form.label "desciption:" %>
+    <%= form.text_field "desciption" %>
+  </p>
+  <%= form.submit %>
+<% end %>
