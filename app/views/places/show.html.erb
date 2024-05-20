@@ -2,13 +2,15 @@
 <ul>
   <% @entries.each do |entry| %>
     <li>
-      <a href="/entries/<%= entry.id %>"><%= entry.title %></a>
+      <strong><%= entry.title %></strong>
+      <p><%= entry.description %></p>
+      <p><%= entry.posted_on %></p>
     </li>
   <% end %>
 </ul>
 <p>
-  <a href="/entries/new?place_id=<%= @place.id %>">New entry for <%= @place.name %></a>
+  <a href="<%= new_entry_path(place_id: @place.id) %>">New entry for <%= @place.name %></a>
 </p>
 <p>
-  <a href="/places">Back to places</a>
+  <a href="<%= places_path %>">Back to places</a>
 </p>
