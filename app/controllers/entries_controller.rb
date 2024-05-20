@@ -4,12 +4,13 @@ class EntriesController < ApplicationController
     @entry.place_id = params["place_id"]
   
   end
+
+  
   
   #savings entries from the article like companies (https://entr451.com/creating-new-records/)
   def create
     @entry = Entry.new(params["entry"])
     @entry.save
-    redirect_to "/places"
- 
+    redirect_to "/places/#{@entry.place_id}"
   end
 end

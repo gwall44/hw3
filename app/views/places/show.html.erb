@@ -1,12 +1,14 @@
-
-<h1>Entries:</h1>
+<h1>Entries for <%= @place.name %>:</h1>
 <ul>
-  <% for e in @entries %>
-     <li>
-      
+  <% @entries.each do |entry| %>
+    <li>
+      <a href="/entries/<%= entry.id %>"><%= entry.title %></a>
     </li>
   <% end %>
-
+</ul>
 <p>
-  <a href="/places/new?place_id=<%= @place.id %>">New entry for <%= @place.name %></a>
+  <a href="/entries/new?place_id=<%= @place.id %>">New entry for <%= @place.name %></a>
+</p>
+<p>
+  <a href="/places">Back to places</a>
 </p>

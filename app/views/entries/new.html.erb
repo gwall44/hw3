@@ -1,18 +1,14 @@
-<h1> New entry for <%= @place["name"] %></h1>
-
-<%= form_with :model => @entry do |form| %>
-   <p>
-    <%= form.label "Entry:" %>
-    <%= form.text_field "Entry" %>
-  </p>
-  <p>
-    <%= form.label "desciption:" %>
-    <%= form.text_field "desciption" %>
-  </p>
-
-   <p>
-    <%= form.label "desciption:" %>
-    <%= form.text_field "desciption" %>
-  </p>
-  <%= form.submit %>
-<% end %>
+<h1>New Entry for <%= @place.name %></h1>
+<form action="/entries" method="post">
+  <input type="hidden" name="entry[place_id]" value="<%= @place.id %>">
+  <label for="entry_title">Title:</label>
+  <input type="text" id="entry_title" name="entry[title]">
+  <label for="entry_description">Description:</label>
+  <textarea id="entry_description" name="entry[description]"></textarea>
+  <label for="entry_posted_on">Date:</label>
+  <input type="date" id="entry_posted_on" name="entry[posted_on]">
+  <input type="submit" value="Add Entry">
+</form>
+<p>
+  <a href="/places/<%= @place.id %>">Back to <%= @place.name %></a>
+</p>
